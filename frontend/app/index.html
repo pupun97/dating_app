@@ -1,0 +1,76 @@
+<!-- File: chapter10/routing-example/app/index.html -->
+<html ng-app="fifaApp">
+<head>
+  <title>Dating App</title>
+  <link rel="stylesheet" href="styles/bootstrap.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->  
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->  
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="styles/util.css">
+  <link rel="stylesheet" type="text/css" href="styles/login.css">
+</head>
+<body >
+  <div class="top-bar"  ng-controller="MainCtrl as mainCtrl">
+    <div class="pull-left">
+      <span><a href="#/">Dating App</a></span>
+    </div>
+    <div>
+      <span>{{mainCtrl.userService.current_user}}</span>
+    </div>
+    <div class="pull-right">
+      <span ng-hide="mainCtrl.userService.isLoggedIn">
+        <a href="#/login">Login</a>
+      </span>
+      <span ng-show="mainCtrl.userService.isLoggedIn">
+        <!-- server-side route, not a client-side route -->
+        <a ng-click="mainCtrl.userService.logout()">Logout</a>
+      </span>
+    </div>
+  </div>
+
+  <div ng-view></div>
+
+  <script src="scripts/vendors/jquery-1.11.1.js"></script>
+  <script src="scripts/vendors/angular.js"></script>
+  <!-- <script src="bower_components/socket.io-client/socket.io.js"></script>
+  <script src="bower_components/angular-socket-io/socket.js"></script> -->
+  <script src="scripts/vendors/angular-route.js"></script>
+  <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+  <script src="lib/socket.io-client/socket.io.js"></script>
+  <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+  <script src="lib/angular-socket-io/socket.min.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/services.js"></script>
+  <script src="scripts/controllers/MainCtrl.js"></script>
+  <script src="scripts/controllers/HomeCtrl.js"></script>
+  <script src="scripts/controllers/LoginCtrl.js"></script>
+  <script src="scripts/controllers/RegisterCtrl.js"></script>
+
+  <!--===============================================================================================-->  
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+  <script src="vendor/tilt/tilt.jquery.min.js"></script>
+  <script >
+    $('.js-tilt').tilt({
+      scale: 1.1
+    })
+  </script>
+</body>
+</html>

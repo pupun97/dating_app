@@ -1,0 +1,24 @@
+<!-- File: chapter10/routing-example/app/views/teams_list.html -->
+<div>
+  <div 
+       ng-repeat="user in teamListCtrl.users.data">
+       <div class="photo_card">
+      
+         <label>{{user.email}}</label>
+         <label style="color: green" ng-if=user.isOnline>Online</label>
+         <label style="color: red" ng-if='!user.isOnline'>Offline</label>
+        
+        <br>
+         <img ng-src="{{user.image}}" height=400 width=400>
+         <br>
+         <label>{{user.likes}}</label>
+         <a ng-click='teamListCtrl.like_photo(user.email)'>
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  
+         </a>
+         
+         <br>
+       </div>
+        
+  </div>
+  
+</div>
